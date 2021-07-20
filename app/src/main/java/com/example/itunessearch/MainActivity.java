@@ -30,8 +30,8 @@ public class MainActivity extends AppCompatActivity{
     private TextInputEditText editText;
     private Button button;
     private String artistNameString;
-    public RecyclerView recyclerView;
-    public List<Artist> artistDataArrayList = new ArrayList<>();
+    private RecyclerView recyclerView;
+    private final List<Artist> artistDataArrayList = new ArrayList<>();
 
 
     @Override

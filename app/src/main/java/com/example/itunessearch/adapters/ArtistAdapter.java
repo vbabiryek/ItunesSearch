@@ -13,11 +13,9 @@ import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 public class ArtistAdapter extends RecyclerView.Adapter<ArtistAdapter.ViewHolder> {
-    public Context context;
-    public List<Artist> artistArrayList;
+    private final List<Artist> artistArrayList;
 
     public ArtistAdapter(Context context, List<Artist> artistArrayList) {
-        this.context = context;
         this.artistArrayList = artistArrayList;
     }
 
@@ -50,17 +48,16 @@ public class ArtistAdapter extends RecyclerView.Adapter<ArtistAdapter.ViewHolder
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
 
-        CardView cardView;
-        TextView artistName;
-        TextView trackName;
-        TextView releaseDate;
-        TextView primaryGenreName;
-        TextView trackPrice;
+        private final TextView artistName;
+        private final TextView trackName;
+        private final TextView releaseDate;
+        private final TextView primaryGenreName;
+        private final TextView trackPrice;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
 
-            cardView = itemView.findViewById(R.id.card_view);
+            CardView cardView = itemView.findViewById(R.id.card_view);
             artistName = itemView.findViewById(R.id.artist_name_txt);
             trackName = itemView.findViewById(R.id.track_name_txt);
             releaseDate = itemView.findViewById(R.id.release_date_txt);
