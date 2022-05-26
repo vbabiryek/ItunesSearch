@@ -54,7 +54,7 @@ public class MainActivity extends AppCompatActivity{
         button = findViewById(R.id.search_button);
         recyclerView = findViewById(R.id.recycler_view);
 
-        ArtistAdapter artistAdapter = new ArtistAdapter(getApplicationContext(), artistDataArrayList);
+        ArtistAdapter artistAdapter = new ArtistAdapter(artistDataArrayList);
 
         button.setOnClickListener(v -> {
             //Grabs our edittext input
@@ -69,6 +69,8 @@ public class MainActivity extends AppCompatActivity{
                 Request request = new Request.Builder()
                         .url(url)
                         .build();
+
+                System.out.println("request is: " + request);
                 try {
                     Response response = okHttpClient.newCall(request).execute();
                     if(response.isSuccessful()){
@@ -76,11 +78,12 @@ public class MainActivity extends AppCompatActivity{
                         String bodyStr = responseBody.string();
 
                         JSONObject jsonObject = new JSONObject(bodyStr);
+                        System.out.println("bodyStr" + bodyStr);
                         JSONArray jsonArray = jsonObject.getJSONArray("results");
 
                         //Iterates through our response array and adds each element to our recyclerview list
                         for(int i = 0; i < jsonArray.length(); i++){
-                            System.out.println(jsonArray.getJSONObject(i));
+                            System.out.println("jsonArray.getJSONObject(i) " + jsonArray.getJSONObject(i));
                             Artist artist = new Artist(jsonArray.getJSONObject(i).getString("artistName"),
                                     jsonArray.getJSONObject(i).getString("trackName"),
                                     jsonArray.getJSONObject(i).getString("releaseDate"),

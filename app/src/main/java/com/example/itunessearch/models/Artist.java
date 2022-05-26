@@ -28,11 +28,11 @@ public class Artist {
         this.trackPrice = trackPrice;
     }
 
-    public Artist() {
-
-    }
 
     public String getArtistName() {
+        if(artistName.isEmpty()){
+            setArtistName("null");
+        }
         return artistName;
     }
 
@@ -41,6 +41,9 @@ public class Artist {
     }
 
     public String getTrackName() {
+        if(trackName.isEmpty()){
+            setTrackName("null");
+        }
         return trackName;
     }
 
@@ -49,6 +52,9 @@ public class Artist {
     }
 
     public String getReleaseDate() {
+        if(releaseDate.isEmpty()){
+            setReleaseDate("null");
+        }
         return releaseDate;
     }
 
@@ -57,6 +63,9 @@ public class Artist {
     }
 
     public String getPrimaryGenreName() {
+        if(primaryGenreName.isEmpty()){
+            setPrimaryGenreName("null");
+        }
         return primaryGenreName;
     }
 
@@ -65,6 +74,9 @@ public class Artist {
     }
 
     public String getTrackPrice() {
+        if(trackPrice.isEmpty()){
+            setTrackPrice("null");
+        }
         return trackPrice;
     }
 
